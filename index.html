@@ -13,15 +13,32 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-      <!-- HEADER -->
-      <!-- APPLICATION NAME & DATE -->
-      
-      <!-- MAIN CONTENT -->
+    <!-- HEADER -->
+    <!-- APPLICATION NAME & DATE -->
+    <header>
+      <h1>
+        Day Planner
+      </h1>
+      <h2>Today is <span id="current-date"></span></h2>
+    </header>
+    <!-- MAIN CONTENT -->
+    <main>
       <!-- TASK BLOCK -->
+      <div id="task-block"></div>
       <!-- ADD TASK BUTTON -->
+      <button>+</button>
       <!-- ADD TASK FIELD -->
+      <div id="new-task">
+        <div id="time-picker"></div>
+        <textarea></textarea>
+        <button>Save</button>
+      </div>
+    </main>
 
-      <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer>
+        <h2>&copy; 2020 Irina Plaksina</h2>
+    </footer>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
