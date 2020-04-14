@@ -1,0 +1,5 @@
+#task-block,
+#add-task,
+#new-task {
+  display: inline-block;
+}

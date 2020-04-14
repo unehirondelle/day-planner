@@ -24,12 +24,19 @@
     <!-- MAIN CONTENT -->
     <main>
       <!-- TASK BLOCK -->
-      <div id="task-block"></div>
+      <div id="task-block">
+        <div class="task">
+          <textarea>time</textarea>
+          <textarea>task</textarea>
+        </div>
+      </div>
       <!-- ADD TASK BUTTON -->
-      <button>+</button>
+      <button id="add-task">+</button>
       <!-- ADD TASK FIELD -->
       <div id="new-task">
-        <div id="time-picker"></div>
+        <select id="time-picker">
+            <option value="">pick a time</option>
+        </select>
         <textarea></textarea>
         <button>Save</button>
       </div>
@@ -37,7 +44,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <h2>&copy; 2020 Irina Plaksina</h2>
+      <h2>&copy; 2020 Irina Plaksina</h2>
     </footer>
 
     <script
