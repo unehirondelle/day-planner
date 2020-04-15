@@ -7,12 +7,21 @@
 header {
     text-align: center;
 }
+
 .hide {
     display: none;
 }
 
 .current {
     background-color: #ECA790;
+}
+
+.past {
+    background-color: darkgray;
+}
+
+.future {
+    background-color: lightgreen;
 }
 
 footer {

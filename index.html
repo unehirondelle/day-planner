@@ -25,27 +25,30 @@
 <main class="container">
     <!-- TASK BLOCK -->
     <div class="row">
-        <div id="task-block" class="col-md-5">
-            <table class="table">
-            <thead class="thead-light">
-            <tr data-row="table-header">
-                <th scope="col">Time</th>
-                <th>Task</th>
-            </tr>
-            </thead>
-            <tbody id="task-table"></tbody>
+        <div id="task-block" class="col-md-6">
+            <table class="table table-bordered table-sm table-hover">
+                <thead class="thead-light">
+                <tr data-row="table-header">
+                    <th scope="col">Time</th>
+                    <th>Task</th>
+                </tr>
+                </thead>
+                <tbody id="task-table"></tbody>
             </table>
         </div>
-        <!-- ADD TASK BUTTON -->
-        <button id="add-task" class="btn btn-outline-primary col-md-2">+</button>
+
         <!-- ADD TASK FIELD -->
-        <div id="new-task" class="hide col-md-5">
-            <select id="time-picker" class="form-control">
-                <option>pick a time</option>
-            </select>
-            <textarea id="task-description" class="form-control" type="text"></textarea>
-            <button id="save" class="btn btn-outline-primary">Save</button>
-            <button id="close" class="btn btn-outline-primary">Close</button>
+        <div class="col-md-6">
+            <!-- ADD TASK BUTTON -->
+            <button id="add-task" class="btn btn-outline-primary">+</button>
+            <div id="new-task" class="hide">
+                <select id="time-picker" class="form-control">
+                    <option>pick a time</option>
+                </select>
+                <textarea id="task-description" class="form-control" type="text"></textarea>
+                <button id="save" class="btn btn-outline-primary">Save</button>
+                <button id="close" class="btn btn-outline-primary">Close</button>
+            </div>
         </div>
     </div>
 </main>
