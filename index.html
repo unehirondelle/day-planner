@@ -15,35 +15,39 @@
 <body>
 <!-- HEADER -->
 <!-- APPLICATION NAME & DATE -->
-<header>
+<header class="jumbotron jumbotron-fluid">
     <h1>
         Day Planner
     </h1>
     <h2>Today is <span id="current-date"></span></h2>
 </header>
 <!-- MAIN CONTENT -->
-<main>
+<main class="container">
     <!-- TASK BLOCK -->
-    <div id="task-block">
-        <table>
-            <tbody id="task-table">
-            <tr>
-                <th>Time</th>
+    <div class="row">
+        <div id="task-block" class="col-md-4">
+            <table class="table table-striped"">
+            </table>
+            <thead class="thead-light">
+            <tr data-row="table-header">
+                <th scope="col">Time</th>
                 <th>Task</th>
             </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- ADD TASK BUTTON -->
-    <button id="add-task">+</button>
-    <!-- ADD TASK FIELD -->
-    <div id="new-task" class="hide">
-        <select id="time-picker">
-            <option value="0">pick a time</option>
-        </select>
-        <textarea id="task-description"></textarea>
-        <button id="save">Save</button>
-        <button id="close">Close</button>
+            </thead>
+            <tbody id="task-table"></tbody>
+            </table>
+        </div>
+        <!-- ADD TASK BUTTON -->
+        <button id="add-task" class="btn btn-outline-primary col-md-4">+</button>
+        <!-- ADD TASK FIELD -->
+        <div id="new-task" class="hide col-md-4">
+            <select id="time-picker" class="form-control">
+                <option>pick a time</option>
+            </select>
+            <textarea id="task-description" class="form-control" type="text"></textarea>
+            <button id="save" class="btn btn-outline-primary">Save</button>
+            <button id="close" class="btn btn-outline-primary">Close</button>
+        </div>
     </div>
 </main>
 
