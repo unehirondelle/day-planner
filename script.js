@@ -13,6 +13,11 @@ for (let i = 0; i < 24; i++) {
     $("#time-picker").append(newTimeOption);
 }
 
+//get the current local time hour
+let currentDate = new Date($.now());
+let currentHour = currentDate.getHours();
+console.log("current hour", currentHour, typeof currentHour);
+
 let newTime = "";
 let newTask = "";
 //set local storage based on user's input
@@ -24,16 +29,16 @@ $("#save").on("click", function () {
     localStorage.setItem(newTime, newTask);
 //create new table row with task in a task-block
     let newRow = $("<tr></tr>");
-    // let newRowData = $("#time-picker option:selected").val();
-    // newRow.attr("data-row", newRowData);
-    let addHead = $("<tr></tr>");
-    addHead.attr("scope", "row");
-    let addTime = $("<td></td>");
+    let hourValue = parseInt(newTime.split(":")[0]);
+    if (hourValue === currentHour) {
+        newRow.addClass("current");
+    }
+    let addTime = $("<th></th>");
+    addTime.attr("scope", "row");
     addTime.text(newTime);
     let addTask = $("<td></td>");
     addTask.text(localStorage.getItem(newTime));
     $("#task-table").append(newRow);
-    $(newRow).append(addHead);
     $(newRow).append(addTime);
     $(newRow).append(addTask);
     //clean up textarea after saving task description
@@ -46,16 +51,9 @@ $("#close").on("click", function () {
     $("#new-task").addClass("hide");
 });
 
-//get the current local time hour
-let currentDate = new Date($.now());
-let currentHour = currentDate.getHours();
-console.log("current hour", currentHour);
 
-//check if there is a current time
-// let currentTimeChecker = $("td").text().split(":")[0];
-// console.log("A", currentTimeChecker);
-// if ($("tr[data-row]") === currentHour) {
-//     console.log("Yey!");
+
+
 
 
 
