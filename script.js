@@ -4,11 +4,13 @@ $("#add-task").on("click", function () {
 //   display the new task block
     $("#new-task").removeClass("hide");
 });
-
+let newTime = "";
+let newTask = "";
 //set local storage based on user's input
 $("#save").on("click", function () {
-    let newTime = $("option").val();
-    let newTask = $("#task-description").val();
+
+    newTime = $("option").val();
+    newTask = $("#task-description").val();
     console.log("time ", newTime, "task: ", newTask);
     localStorage.setItem(newTime, newTask);
 //create new table row with task in a task-block
@@ -21,4 +23,9 @@ $("#save").on("click", function () {
     $("#task-table").append(newRow);
     $(newRow).append(addTime);
     $(newRow).append(addTask);
+    $("#task-description").val("");
 });
+
+$("#close").on("click", function () {
+    $("#new-task").addClass("hide");
+})
