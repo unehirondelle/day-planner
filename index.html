@@ -22,24 +22,26 @@
     <h2>Today is <span id="current-date"></span></h2>
 </header>
 <!-- MAIN CONTENT -->
-<main class="container container-fluid">
+<main class="container">
     <!-- TASK BLOCK -->
     <div class="row">
-        <div id="task-block" class="col-lg-6">
-            <button id="add-task" class="btn btn-outline-primary col-lg-12">+</button>
-            <table class="table table-bordered table-sm table-hover">
-                <thead class="thead-light">
-                <tr data-row="table-header">
-                    <th scope="col">Time</th>
-                    <th>Task</th>
-                </tr>
-                </thead>
-                <tbody id="task-table"></tbody>
-            </table>
+        <div id="task-block" class="col-lg-6 col-sm-12">
+            <div class="row">
+                <button id="add-task" class="btn btn-outline-primary col-lg-12">+</button>
+                <table class="table table-bordered table-sm table-hover">
+                    <thead class="thead-light">
+                    <tr data-row="table-header">
+                        <th scope="col">Time</th>
+                        <th>Task</th>
+                    </tr>
+                    </thead>
+                    <tbody id="task-table"></tbody>
+                </table>
+            </div>
         </div>
 
         <!-- ADD TASK FIELD -->
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-sm-12">
             <!-- ADD TASK BUTTON -->
             <div id="new-task" class="hide">
                 <select id="time-picker" class="form-control">
@@ -54,7 +56,7 @@
 </main>
 
 <!-- FOOTER -->
-<footer>
+<footer class="blockquote-footer">
     <h2>&copy; 2020 Irina Plaksina</h2>
 </footer>
 
