@@ -1,3 +1,17 @@
+//get the current local time hour and date
+let currentDate = new Date($.now());
+console.log("Today:", currentDate);
+let currentHour = currentDate.getHours();
+console.log("current hour", currentHour, typeof currentHour);
+let weekdaysArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+let monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "October", "December"]
+let currentWeekday = weekdaysArr[currentDate.getDay()-1];
+let currentMonth = monthsArr[currentDate.getMonth()];
+let currentDay = currentDate.getDate();
+let currentYear = currentDate.getFullYear();
+
+$("#current-date").text(currentWeekday + " " + currentMonth + " " + currentDay + " " + currentYear);
+
 // CREATE TASK-BLOCK
 // addEventListener on a + button to create an element of a task block
 $("#add-task").on("click", function () {
@@ -12,11 +26,6 @@ for (let i = 0; i < 24; i++) {
     newTimeOption.text(i + ":00");
     $("#time-picker").append(newTimeOption);
 }
-
-//get the current local time hour
-let currentDate = new Date($.now());
-let currentHour = currentDate.getHours();
-console.log("current hour", currentHour, typeof currentHour);
 
 let newTime = "";
 let newTask = "";
