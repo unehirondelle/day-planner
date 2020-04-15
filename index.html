@@ -22,10 +22,11 @@
     <h2>Today is <span id="current-date"></span></h2>
 </header>
 <!-- MAIN CONTENT -->
-<main class="container">
+<main class="container container-fluid">
     <!-- TASK BLOCK -->
     <div class="row">
-        <div id="task-block" class="col-md-6">
+        <div id="task-block" class="col-lg-6">
+            <button id="add-task" class="btn btn-outline-primary col-lg-12">+</button>
             <table class="table table-bordered table-sm table-hover">
                 <thead class="thead-light">
                 <tr data-row="table-header">
@@ -38,9 +39,8 @@
         </div>
 
         <!-- ADD TASK FIELD -->
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <!-- ADD TASK BUTTON -->
-            <button id="add-task" class="btn btn-outline-primary">+</button>
             <div id="new-task" class="hide">
                 <select id="time-picker" class="form-control">
                     <option>pick a time</option>
