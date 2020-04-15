@@ -1,8 +1,8 @@
 //get the current local time hour and date
 let currentDate = new Date();
-console.log("Today:", currentDate);
+// console.log("Today:", currentDate);
 let currentHour = currentDate.getHours();
-console.log("current hour", currentHour, typeof currentHour);
+// console.log("current hour", currentHour, typeof currentHour);
 let weekdaysArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 let monthsArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "October", "December"]
 let currentWeekday = weekdaysArr[currentDate.getDay() - 1];
@@ -27,37 +27,27 @@ for (let i = 0; i < 24; i++) {
     $("#time-picker").append(newTimeOption);
 }
 
-let newTime = "";
-let newTask = "";
+let newRow;
+let hourValue;
+//localStorage keys/values
+let localStorageKeys = Object.keys(localStorage);
+let localStorageValues = Object.values(localStorage);
+// console.log(key);
+
+//autocreate a table based on a current localStorage information
+parseLocalStorage();
+
 //set local storage based on user's input
 $("#save").on("click", function () {
-
-    newTime = $("#time-picker option:selected").attr("value");
-    newTask = $("#task-description").val();
+    let newTime = $("#time-picker option:selected").attr("value");
+    let newTask = $("#task-description").val();
     console.log("time ", newTime, "task: ", newTask);
     localStorage.setItem(newTime, newTask);
-//create new table row with task in a task-block
-    let newRow = $("<tr></tr>");
-    //check if the current time
-    let hourValue = parseInt(newTime.split(":")[0]);
-    if (hourValue > currentHour) {
-        newRow.addClass("future")
-    } else if (hourValue === currentHour) {
-        newRow.addClass("current");
-    } else {
-        newRow.addClass("past")
-    }
-    let addTime = $("<th></th>");
-    addTime.attr("scope", "row");
-    addTime.text(newTime);
-    let addTask = $("<td></td>");
-    addTask.text(localStorage.getItem(newTime));
-    $("#task-table").append(newRow);
-    $(newRow).append(addTime);
-    $(newRow).append(addTask);
+    appendRow(newTime, newTask);
+    console.log("keyText:", newTime, "valueText:", newTask);
+    checkCurrentTime(newTime);
     //clean up textarea after saving task description
     $("#task-description").val("");
-
 });
 
 //close button to remove the new task block
@@ -66,24 +56,22 @@ $("#close").on("click", function () {
 });
 
 //take the actual text from key in localStorage
-let key = Object.keys(localStorage);
-let value = Object.values(localStorage);
-console.log(key);
-let keyText = "";
-let valueText = "";
-for (let k = 0; k < key.length; k++) {
-    if (key[k] !== -1) {
-        keyText = key[k];
-        valueText = value[k];
-        console.log("key:", key[k], "value: ", value[k]);
-        checkLocalStorage();
+function parseLocalStorage() {
+    for (let k = 0; k < localStorageKeys.length; k++) {
+        if (localStorageKeys[k] !== -1) {
+            let keyText = localStorageKeys[k];
+            let valueText = localStorageValues[k];
+            console.log("key:", localStorageKeys[k], "value: ", localStorageValues[k]);
+            appendRow(keyText, valueText);
+            checkCurrentTime(keyText);
+        }
     }
 }
 
-function checkLocalStorage() {
-    let newRow = $("<tr></tr>");
+//build the table
+function appendRow(keyText, valueText) {
+    newRow = $("<tr></tr>");
     let addTime = $("<th></th>");
-    addTime.attr("scope", "row");
     addTime.text(keyText);
     let addTask = $("<td></td>");
     addTask.text(valueText);
@@ -92,7 +80,17 @@ function checkLocalStorage() {
     $(newRow).append(addTask);
 }
 
-
+//determine the class
+function checkCurrentTime(keyText) {
+    hourValue = parseInt(keyText.split(":")[0]);
+    if (hourValue > currentHour) {
+        newRow.addClass("future")
+    } else if (hourValue === currentHour) {
+        newRow.addClass("current");
+    } else {
+        newRow.addClass("past")
+    }
+}
 
 
 
