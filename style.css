@@ -23,8 +23,3 @@ header {
 .future {
     background-color: lightgreen;
 }
-
-footer {
-    position: absolute;
-    bottom: 0;
-}
