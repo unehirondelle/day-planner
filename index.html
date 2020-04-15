@@ -25,10 +25,14 @@
 <main>
     <!-- TASK BLOCK -->
     <div id="task-block">
-        <div class="task">
-            <textarea>time</textarea>
-            <textarea>task</textarea>
-        </div>
+        <table>
+            <tbody id="task-table">
+            <tr>
+                <th>Time</th>
+                <th>Task</th>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <!-- ADD TASK BUTTON -->
     <button id="add-task">+</button>
@@ -37,7 +41,7 @@
         <select id="time-picker">
             <option value="9am">9am</option>
         </select>
-        <textarea id="task"></textarea>
+        <textarea id="task-description"></textarea>
         <button id="save">Save</button>
     </div>
 </main>
