@@ -38,6 +38,7 @@ $("#save").on("click", function () {
     localStorage.setItem(newTime, newTask);
 //create new table row with task in a task-block
     let newRow = $("<tr></tr>");
+    //check if the current time
     let hourValue = parseInt(newTime.split(":")[0]);
     if (hourValue > currentHour) {
         newRow.addClass("future")
@@ -64,6 +65,32 @@ $("#close").on("click", function () {
     $("#new-task").addClass("hide");
 });
 
+//take the actual text from key in localStorage
+let key = Object.keys(localStorage);
+let value = Object.values(localStorage);
+console.log(key);
+let keyText = "";
+let valueText = "";
+for (let k = 0; k < key.length; k++) {
+    if (key[k] !== -1) {
+        keyText = key[k];
+        valueText = value[k];
+        console.log("key:", key[k], "value: ", value[k]);
+        checkLocalStorage();
+    }
+}
+
+function checkLocalStorage() {
+    let newRow = $("<tr></tr>");
+    let addTime = $("<th></th>");
+    addTime.attr("scope", "row");
+    addTime.text(keyText);
+    let addTask = $("<td></td>");
+    addTask.text(valueText);
+    $("#task-table").append(newRow);
+    $(newRow).append(addTime);
+    $(newRow).append(addTask);
+}
 
 
 
