@@ -4,15 +4,18 @@
     box-sizing: border-box;
 }
 
-#task-block,
-#add-task {
-    display: inline-block;
+header {
+    text-align: center;
 }
-
 .hide {
     display: none;
 }
 
 .current {
     background-color: #ECA790;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
 }
